@@ -30,7 +30,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
   tab_indicator_styler: ^2.0.0
-  bubble_tab_indicator: "^0.1.5"
+  bubble_tab_indicator: ^0.1.5
+  http: ^0.13.0
+  provider: ^6.0.1
+  fluttertoast: ^8.0.3
+  shared_preferences: ^2.0.0
+  email_validator: ^2.0.1
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:testproject/Provider/DashBoardProvider.dart';
+import 'package:testproject/Provider/LoginProvider.dart';
 import 'package:testproject/Screens/Login.dart';
 import 'package:intl/intl.dart';
 
@@ -15,12 +18,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-       primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LoginProvider>(
+            create: (BuildContext context) => LoginProvider()),
+            ChangeNotifierProvider<DashboardProvider>(
+            create: (BuildContext context) => DashboardProvider()),
+      ],
+          child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+         primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage(title: 'Flutter Demo Home Page'),
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -57,7 +68,7 @@ getcurrentDate(){
   Widget build(BuildContext context) {
    
     return Scaffold(
-      
+      resizeToAvoidBottomInset: false,
       body:LoginPage(
         date: date!,
         time: time!,
